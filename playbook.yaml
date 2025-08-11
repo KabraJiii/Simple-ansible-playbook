@@ -1,15 +1,20 @@
----
-- name: Install and start nginx service
+# ---
+- name: checking ansible version
   hosts: all
-  become: true
   tasks:
-    - name: Install nginx
-      ansible.builtin.yum:
-        name: nginx
-        state: present
+    - name: ansible version check
+      ansible.builtin.command: ansible --version
+# - name: Install and start nginx service
+#   hosts: all
+#   become: true
+#   tasks:
+#     - name: Install nginx
+#       ansible.builtin.yum:
+#         name: nginx
+#         state: present
 
-    - name: Ensure nginx service is started and enabled
-      ansible.builtin.service:
-        name: nginx
-        state: started
-        enabled: true
+#     - name: Ensure nginx service is started and enabled
+#       ansible.builtin.service:
+#         name: nginx
+#         state: started
+#         enabled: true
